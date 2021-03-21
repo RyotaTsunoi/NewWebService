@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { useFetchUser } from '../lib/user';
 
 export default function Home(): React.ReactElement {

@@ -2,7 +2,7 @@ import Router from 'next/router';
 import React, { Component } from 'react';
 
 import createLoginUrl from '../lib/url-helper';
-// import Layout from './layout';
+import Layout from './Layout';
 
 export default class RedirectToLogin extends Component {
   componentDidMount(): void {
@@ -11,9 +11,9 @@ export default class RedirectToLogin extends Component {
 
   render(): React.ReactElement {
     return (
-      // <Layout loading={true}>
-      <div>Signing you in...</div>
-      // </Layout>
+      <Layout loading={true}>
+        <div>Signing you in...</div>
+      </Layout>
     );
   }
 }
