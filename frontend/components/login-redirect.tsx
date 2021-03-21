@@ -1,8 +1,8 @@
 import Router from 'next/router';
 import React, { Component } from 'react';
 
-import Layout from '../components/layout';
 import createLoginUrl from '../lib/url-helper';
+import Layout from './layout';
 
 export default class RedirectToLogin extends Component {
   componentDidMount(): void {
