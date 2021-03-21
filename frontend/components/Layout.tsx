@@ -1,41 +1,41 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 
-type Props = {
-  children?: ReactNode
-  title?: string
-}
+import Header from './header';
+import { UserProvider } from '../lib/user';
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <div>
+type LayoutProps = {
+  user?: any;
+  loading: boolean;
+  children: React.ReactNode;
+};
+
+const Layout: React.FunctionComponent<LayoutProps> = ({ user, loading = false, children }: LayoutProps) => (
+  <UserProvider value={{ user, loading }}>
     <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <title>Next.js with Auth0</title>
     </Head>
-    <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{' '}
-        | <a href="/api/users">Users API</a>
-      </nav>
-    </header>
-    {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
-  </div>
-)
 
-export default Layout
+    <Header />
+
+    <main>
+      <div className="container">{children}</div>
+    </main>
+
+    <style jsx>{`
+      .container {
+        max-width: 42rem;
+        margin: 1.5rem auto;
+      }
+    `}</style>
+    <style jsx global>{`
+      body {
+        margin: 0;
+        color: #333;
+        font-family: -apple-system, 'Segoe UI';
+      }
+    `}</style>
+  </UserProvider>
+);
+
+export default Layout;
