@@ -24,7 +24,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ user, loading = false, c
 
     <style jsx>{`
       .container {
-        max-width: 42rem;
+        max-width: 60rem;
         margin: 1.5rem auto;
       }
     `}</style>

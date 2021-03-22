@@ -5,7 +5,9 @@ export default class CustomDocument extends Document<unknown> {
   render(): React.ReactElement {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />
