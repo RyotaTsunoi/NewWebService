@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import auth0 from '../../lib/auth0';
+import auth0 from '../../../lib/auth0';
 
 export default async function me(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {

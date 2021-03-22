@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
-import withAuth from '../components/with-auth';
-import { UserProfile } from '../lib/user';
+import Layout from '../../components/Layout';
+import withAuth from '../../components/with-auth';
+import { UserProfile } from '../../lib/user';
 
 type ProfileProps = { user: UserProfile };
 

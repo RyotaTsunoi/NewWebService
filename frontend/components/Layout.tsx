@@ -33,6 +33,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ user, loading = false, c
         margin: 0;
         color: #333;
         font-family: -apple-system, 'Segoe UI';
+        height: 1920px;
       }
     `}</style>
   </UserProvider>

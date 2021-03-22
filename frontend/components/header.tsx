@@ -1,91 +1,99 @@
 import React from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Link from 'next/link';
-
 import { useUser } from '../lib/user';
+import styled from 'styled-components';
 
-const Header: React.FunctionComponent = () => {
+const LinkButton = styled(Button)`
+  color: white;
+`;
+
+const StyledNav = styled.nav`
+  max-width: 42rem;
+  margin-left: auto;
+`;
+
+const StyledList = styled.ul`
+  display: flex;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+`;
+
+const StyledListItem = styled.li`
+  margin-right: 1rem;
+`;
+
+const TitleTypography = styled((props) => <Typography {...props} variant="h5" />)`
+  flex-grow: 1;
+`;
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1
+    },
+    menuButton: {
+      marginRight: theme.spacing(2)
+    },
+    title: {
+      flexGrow: 1
+    }
+  })
+);
+
+export default function Header() {
+  const classes = useStyles();
   const { user, loading } = useUser();
 
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/protected-page">
-              <a>Protected Page</a>
-            </Link>
-          </li>
-          {!loading &&
-            (user ? (
-              <>
-                <li>
-                  <Link href="/profile">
-                    <a>Profile</a>
-                  </Link>
-                </li>{' '}
-                <li>
-                  <a href="/profile-ssr">Profile (SSR)</a>
-                </li>{' '}
-                <li>
-                  <a href="/api/logout">Logout</a>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <a href="/api/login">Login</a>
-                </li>
-              </>
-            ))}
-        </ul>
-      </nav>
-
-      <style jsx>{`
-        header {
-          padding: 0.2rem;
-          color: #fff;
-          background-color: #333;
-        }
-        nav {
-          max-width: 42rem;
-          margin: 1.5rem auto;
-        }
-        ul {
-          display: flex;
-          list-style: none;
-          margin-left: 0;
-          padding-left: 0;
-        }
-        li {
-          margin-right: 1rem;
-        }
-        li:nth-child(3) {
-          margin-right: auto;
-        }
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
-        button {
-          font-size: 1rem;
-          color: #fff;
-          cursor: pointer;
-          border: none;
-          background: none;
-        }
-      `}</style>
-    </header>
+    <div className={classes.root}>
+      <AppBar position="sticky">
+        <Toolbar>
+          <TitleTypography>ApplicationTitle</TitleTypography>
+          <StyledNav>
+            <StyledList>
+              <StyledListItem>
+                <Link href="/" passHref>
+                  <LinkButton>Home</LinkButton>
+                </Link>
+              </StyledListItem>
+              <StyledListItem>
+                <Link href="/about" passHref>
+                  <LinkButton>About</LinkButton>
+                </Link>
+              </StyledListItem>
+              {!loading &&
+                (user ? (
+                  <>
+                    <StyledListItem>
+                      <Link href="/profile" passHref>
+                        <LinkButton>Profile</LinkButton>
+                      </Link>
+                    </StyledListItem>{' '}
+                    <StyledListItem>
+                      <Link href="/api/logout" passHref>
+                        <LinkButton>Logout</LinkButton>
+                      </Link>
+                    </StyledListItem>
+                  </>
+                ) : (
+                  <>
+                    <StyledListItem>
+                      <Link href="/api/login" passHref>
+                        <LinkButton>Login</LinkButton>
+                      </Link>
+                    </StyledListItem>
+                  </>
+                ))}
+            </StyledList>
+          </StyledNav>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
-};
-
-export default Header;
+}

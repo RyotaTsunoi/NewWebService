@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
-import { useFetchUser } from '../lib/user';
+import Layout from '../../components/Layout';
+import { useFetchUser } from '../../lib/user';
+import withAuth from '../../components/with-auth';
 
-export default function Profile(): React.ReactElement {
+export function ProtectedPage(): React.ReactElement {
   const { user, loading } = useFetchUser();
 
   return (
     <Layout user={user} loading={loading}>
-      <h1>Profile</h1>
+      <h1>Protected Page</h1>
 
       {loading && <p>Loading profile...</p>}
 
@@ -21,3 +22,5 @@ export default function Profile(): React.ReactElement {
     </Layout>
   );
 }
+
+export default withAuth(ProtectedPage);
