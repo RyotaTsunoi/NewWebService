@@ -31,6 +31,7 @@ const StyledListItem = styled.li`
 
 const TitleTypography = styled((props) => <Typography {...props} variant="h5" />)`
   flex-grow: 1;
+  cursor: pointer;
 `;
 
 const useStyles = makeStyles(() =>
@@ -50,14 +51,13 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar position="sticky">
         <Toolbar>
-          <TitleTypography>ApplicationTitle</TitleTypography>
+          <div>
+            <Link href="/" passHref>
+              <TitleTypography>ApplicationTitle</TitleTypography>
+            </Link>
+          </div>
           <StyledNav>
             <StyledList>
-              <StyledListItem>
-                <Link href="/" passHref>
-                  <LinkButton>Home</LinkButton>
-                </Link>
-              </StyledListItem>
               <StyledListItem>
                 <Link href="/about" passHref>
                   <LinkButton>About</LinkButton>
