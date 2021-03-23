@@ -5,7 +5,6 @@ import { fetchUser } from '../modules/userModule';
 import { RootState } from '../src/redux/rootReducer';
 
 import Header from './header';
-import { UserProvider } from '../lib/user';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -20,12 +19,12 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps)
   }, [dispatch]);
 
   return (
-    <UserProvider value={{ user: userSession?.user, loading }}>
+    <>
       <Head>
         <title>Next.js with Auth0</title>
       </Head>
 
-      <Header />
+      <Header userSession={userSession} loading={loading} />
 
       <main>
         <div className="container">{children}</div>
@@ -45,7 +44,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps)
           height: 100%;
         }
       `}</style>
-    </UserProvider>
+    </>
   );
 };
 

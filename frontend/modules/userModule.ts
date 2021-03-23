@@ -19,7 +19,7 @@ type UserProfile = {
   [key: string]: unknown;
 };
 
-type UserSession = {
+export type UserSession = {
   user: UserProfile | null;
   idToken?: string | undefined;
   accessToken?: string | undefined;

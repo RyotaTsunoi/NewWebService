@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import Link from 'next/link';
-import { useUser } from '../lib/user';
+import { UserSession } from '../modules/userModule';
 import styled from 'styled-components';
 
 const LinkButton = styled(Button)`
@@ -42,10 +42,13 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export default function Header() {
+type Props = {
+  userSession: UserSession | null;
+  loading: boolean;
+};
+
+const Header: FC<Props> = ({ userSession, loading }) => {
   const classes = useStyles();
-  const { user, loading } = useUser();
-  console.log(user);
 
   return (
     <div className={classes.root}>
@@ -64,7 +67,7 @@ export default function Header() {
                 </Link>
               </StyledListItem>
               {!loading &&
-                (user ? (
+                (userSession ? (
                   <>
                     <StyledListItem>
                       <Link href="/profile" passHref>
@@ -82,7 +85,7 @@ export default function Header() {
                       </Link>
                     </StyledListItem>
                     <StyledListItem>
-                      <Avatar alt={user.nickname} src={user.picture} />
+                      <Avatar alt={userSession?.user?.nickname} src={userSession?.user?.picture} />
                     </StyledListItem>
                   </>
                 ) : (
@@ -100,4 +103,6 @@ export default function Header() {
       </AppBar>
     </div>
   );
-}
+};
+
+export default Header;
