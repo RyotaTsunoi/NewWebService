@@ -4,10 +4,8 @@ import Layout from '../../components/Layout';
 import { useFetchUser } from '../../lib/user';
 
 const About: React.FC = () => {
-  const { user, loading } = useFetchUser();
-
   return (
-    <Layout user={user} loading={loading}>
+    <Layout>
       <h1>About</h1>
       <p>
         This is the about page, navigating between this page and <i>Home</i> is always pretty fast. However, when you

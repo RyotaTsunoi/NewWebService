@@ -5,6 +5,8 @@ import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-component
 import { ThemeProvider as MaterialUIThemeProvider, StylesProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../styles/theme';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 
 const App = ({ Component, pageProps }): JSX.Element => {
   // Remove the server-side injected CSS.(https://material-ui.com/guides/server-rendering/)
@@ -16,14 +18,16 @@ const App = ({ Component, pageProps }): JSX.Element => {
   }, []);
 
   return (
-    <StylesProvider injectFirst>
-      <MaterialUIThemeProvider theme={theme}>
-        <StyledComponentsThemeProvider theme={theme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </StyledComponentsThemeProvider>
-      </MaterialUIThemeProvider>
-    </StylesProvider>
+    <Provider store={store}>
+      <StylesProvider injectFirst>
+        <MaterialUIThemeProvider theme={theme}>
+          <StyledComponentsThemeProvider theme={theme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </StyledComponentsThemeProvider>
+        </MaterialUIThemeProvider>
+      </StylesProvider>
+    </Provider>
   );
 };
 

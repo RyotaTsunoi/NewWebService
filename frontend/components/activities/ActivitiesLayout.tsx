@@ -1,7 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
-
-import Header from '../header';
 import { MemoProvider } from '../../lib/activity/memo';
 
 type LayoutProps = {

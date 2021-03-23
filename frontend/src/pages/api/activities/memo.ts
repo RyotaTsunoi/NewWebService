@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import auth0 from '../../../../lib/auth0';
-import { getServerSetting } from '../../../../lib/utils/getServerSetting';
 
 export default async function memo(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {

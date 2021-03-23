@@ -1,21 +1,27 @@
 import React from 'react';
 
 import Layout from '../../components/Layout';
-import { useFetchUser } from '../../lib/user';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/rootReducer';
 
 export default function Profile(): React.ReactElement {
-  const { user, loading } = useFetchUser();
+  const { userSession, loading, error } = useSelector((state: RootState) => state.user);
 
   return (
-    <Layout user={user} loading={loading}>
+    <Layout>
       <h1>Profile</h1>
 
       {loading && <p>Loading profile...</p>}
 
-      {!loading && user && (
+      {!loading && userSession && (
         <>
           <p>Profile:</p>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
+          <pre>{JSON.stringify(userSession.user, null, 2)}</pre>
+        </>
+      )}
+      {error && (
+        <>
+          <pre>{JSON.stringify(error, null, 2)}</pre>
         </>
       )}
     </Layout>

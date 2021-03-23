@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react';
 import fetch from 'isomorphic-unfetch';
-import { getServerSetting, ç } from '../utils/getServerSetting';
-import auth0 from '../../lib/auth0';
-import { type } from 'os';
+import { getServerSetting } from '../utils/getServerSetting';
 
 export interface MemoContents {
   category: string | null | undefined;
