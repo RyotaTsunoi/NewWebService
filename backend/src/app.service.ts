@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getHello(): Record<string, string> {
+    return {
+      category: 'Test category',
+      contents: 'Test contents',
+      updated_at: 'Test date',
+    };
   }
 }

@@ -72,6 +72,11 @@ export default function Header() {
                       </Link>
                     </StyledListItem>{' '}
                     <StyledListItem>
+                      <Link href="/activities" passHref>
+                        <LinkButton>Activities</LinkButton>
+                      </Link>
+                    </StyledListItem>{' '}
+                    <StyledListItem>
                       <Link href="/api/logout" passHref>
                         <LinkButton>Logout</LinkButton>
                       </Link>

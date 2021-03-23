@@ -37,6 +37,7 @@ export const fetchUser = async (): Promise<UserProfile> => {
   }
 
   const res = await fetch('/api/me');
+  console.log(res);
   userState = res.ok ? await res.json() : null;
   return userState;
 };

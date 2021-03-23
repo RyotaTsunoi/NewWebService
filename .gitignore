@@ -74,3 +74,4 @@ backend/!.vscode/tasks.json
 backend/!.vscode/launch.json
 backend/!.vscode/extensions.json
 frontend/.env
+backend/.env
