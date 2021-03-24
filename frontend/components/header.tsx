@@ -67,37 +67,36 @@ const Header: FC<Props> = ({ userSession, loading }) => {
                   <LinkButton>About</LinkButton>
                 </Link>
               </StyledListItem>
-              {!loading &&
-                (userSession ? (
-                  <>
-                    <StyledListItem>
-                      <Link href="/user/profile" passHref>
-                        <LinkButton>UserProfile</LinkButton>
-                      </Link>
-                    </StyledListItem>{' '}
-                    <StyledListItem>
-                      <Link href="/user/setting" passHref>
-                        <LinkButton>UserSetting</LinkButton>
-                      </Link>
-                    </StyledListItem>{' '}
-                    <StyledListItem>
-                      <Link href="/api/authz/logout" passHref>
-                        <LinkButton>Logout</LinkButton>
-                      </Link>
-                    </StyledListItem>
-                    <StyledListItem>
-                      <Avatar alt={userSession?.user?.nickname} src={userSession?.user?.picture} />
-                    </StyledListItem>
-                  </>
-                ) : (
-                  <>
-                    <StyledListItem>
-                      <Link href="/api/authz/login" passHref>
-                        <LinkButton>Login</LinkButton>
-                      </Link>
-                    </StyledListItem>
-                  </>
-                ))}
+              {userSession ? (
+                <>
+                  <StyledListItem>
+                    <Link href="/user/profile" passHref>
+                      <LinkButton>UserProfile</LinkButton>
+                    </Link>
+                  </StyledListItem>{' '}
+                  <StyledListItem>
+                    <Link href="/user/setting" passHref>
+                      <LinkButton>UserSetting</LinkButton>
+                    </Link>
+                  </StyledListItem>{' '}
+                  <StyledListItem>
+                    <Link href="/api/authz/logout" passHref>
+                      <LinkButton>Logout</LinkButton>
+                    </Link>
+                  </StyledListItem>
+                  <StyledListItem>
+                    <Avatar alt={userSession?.user?.nickname} src={userSession?.user?.picture} />
+                  </StyledListItem>
+                </>
+              ) : (
+                <>
+                  <StyledListItem>
+                    <Link href="/api/authz/login" passHref>
+                      <LinkButton>Login</LinkButton>
+                    </Link>
+                  </StyledListItem>
+                </>
+              )}
             </StyledList>
           </StyledNav>
         </Toolbar>
