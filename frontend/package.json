@@ -6,7 +6,9 @@
     "build": "next build --debug",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "eslint \"{src,lib,components}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,lib,components}/**/*.ts\" --fix",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "build-storybook -o build/storybook"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.13.6",
@@ -14,6 +16,14 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.5.0",
+    "@storybook/addon-a11y": "^6.1.21",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-docs": "^6.1.21",
+    "@storybook/addon-knobs": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/addon-storyshots": "^6.1.21",
+    "@storybook/addons": "^6.1.21",
+    "@storybook/react": "^6.1.21",
     "@types/react-redux": "^7.1.16",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
@@ -27,7 +37,7 @@
     "webpack": "^5.27.1"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
+    "@types/node": "^14.14.35",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/styled-components": "^5.1.9",

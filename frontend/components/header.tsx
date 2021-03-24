@@ -68,13 +68,8 @@ const Header: FC<Props> = ({ userSession }) => {
               {userSession ? (
                 <>
                   <StyledListItem>
-                    <Link href="/user/profile" passHref>
+                    <Link href="/user" passHref>
                       <LinkButton>UserProfile</LinkButton>
-                    </Link>
-                  </StyledListItem>{' '}
-                  <StyledListItem>
-                    <Link href="/user/setting" passHref>
-                      <LinkButton>UserSetting</LinkButton>
                     </Link>
                   </StyledListItem>{' '}
                   <StyledListItem>
