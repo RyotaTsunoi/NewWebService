@@ -44,12 +44,10 @@ const useStyles = makeStyles(() =>
 
 type Props = {
   userSession: UserSession | null;
-  loading: boolean;
 };
 
-const Header: FC<Props> = ({ userSession, loading }) => {
+const Header: FC<Props> = ({ userSession }) => {
   const classes = useStyles();
-  console.log('a');
 
   return (
     <div className={classes.root}>

@@ -12,7 +12,7 @@ type LayoutProps = {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps) => {
   const dispatch = useDispatch();
-  const { userSession, loading } = useSelector((state: RootState) => state.user);
+  const { userSession } = useSelector((state: RootState) => state.user);
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
@@ -23,7 +23,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps)
         <title>Next.js with Auth0</title>
       </Head>
 
-      <Header userSession={userSession} loading={loading} />
+      <Header userSession={userSession} />
 
       <main>
         <div className="container">{children}</div>
