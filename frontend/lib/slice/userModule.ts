@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AppDispatch } from '../../src/redux/store';
 
 type UserProfile = {
   email: string | null | undefined;
@@ -32,13 +33,13 @@ export type UserSession = {
 type State = {
   userSession: UserSession | null;
   loading: boolean;
-  error: any;
+  error: unknown;
 };
 
 const initialState: State = {
   userSession: null,
   loading: true,
-  error: null
+  error: null,
 };
 
 const userModule = createSlice({
@@ -60,14 +61,14 @@ const userModule = createSlice({
       state.error = null;
       state.userSession = action.payload;
       console.log(state, 'inSucToken');
-    }
-  }
+    },
+  },
 });
 
 export const { fetchStart, fetchFailure, fetchSuccess } = userModule.actions;
 export default userModule;
 
-export const fetchUser = () => async (dispatch) => {
+export const fetchUser = () => async (dispatch: AppDispatch): Promise<void> => {
   try {
     dispatch(fetchStart());
     dispatch(fetchSuccess(await fetchUserAccessToken()));

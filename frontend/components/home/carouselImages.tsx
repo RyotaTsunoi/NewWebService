@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles, Theme, useTheme, createStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -10,31 +10,31 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 const tutorialSteps = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60'
+    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
     label: 'Bird',
-    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60'
+    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
     label: 'Bali, Indonesia',
-    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80'
+    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
   },
   {
     label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
-    imgPath: 'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60'
+    imgPath: 'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
     label: 'Goč, Serbia',
-    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60'
-  }
+    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+  },
 ];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       maxWidth: '100%',
-      flexGrow: 1
+      flexGrow: 1,
     },
     header: {
       display: 'flex',
@@ -42,19 +42,19 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 50,
       paddingLeft: theme.spacing(2),
       color: 'white',
-      backgroundColor: 'black'
+      backgroundColor: 'black',
     },
     img: {
       height: 400,
       maxWidth: '100%',
       overflow: 'hidden',
       display: 'block',
-      width: '100%'
-    }
-  })
+      width: '100%',
+    },
+  }),
 );
 
-export default function TextMobileStepper() {
+export const TextMobileStepper: FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -94,4 +94,6 @@ export default function TextMobileStepper() {
       />
     </div>
   );
-}
+};
+
+export default TextMobileStepper;

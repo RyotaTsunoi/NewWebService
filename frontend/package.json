@@ -5,7 +5,8 @@
     "dev": "next -p 4200",
     "build": "next build --debug",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "lint": "eslint \"{src,lib,components}/**/*.ts\" --fix"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.13.6",

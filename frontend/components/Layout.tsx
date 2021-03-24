@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUser } from '../modules/userModule';
+import { fetchUser } from '../lib/slice/userModule';
 import { RootState } from '../src/redux/rootReducer';
 
 import Header from './header';
@@ -12,8 +12,7 @@ type LayoutProps = {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps) => {
   const dispatch = useDispatch();
-  const { userSession, loading, error } = useSelector((state: RootState) => state.user);
-  console.error(error);
+  const { userSession, loading } = useSelector((state: RootState) => state.user);
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);

@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import Link from 'next/link';
-import { UserSession } from '../modules/userModule';
 import styled from 'styled-components';
+import { UserSession } from '../lib/slice/userModule';
 
 const LinkButton = styled(Button)`
   color: white;
@@ -37,9 +37,9 @@ const TitleTypography = styled((props) => <Typography {...props} variant="h5" />
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      flexGrow: 1
-    }
-  })
+      flexGrow: 1,
+    },
+  }),
 );
 
 type Props = {
@@ -49,6 +49,7 @@ type Props = {
 
 const Header: FC<Props> = ({ userSession, loading }) => {
   const classes = useStyles();
+  console.log('a');
 
   return (
     <div className={classes.root}>
@@ -70,17 +71,17 @@ const Header: FC<Props> = ({ userSession, loading }) => {
                 (userSession ? (
                   <>
                     <StyledListItem>
-                      <Link href="/profile" passHref>
-                        <LinkButton>Profile</LinkButton>
+                      <Link href="/user/profile" passHref>
+                        <LinkButton>UserProfile</LinkButton>
                       </Link>
                     </StyledListItem>{' '}
                     <StyledListItem>
-                      <Link href="/activities" passHref>
-                        <LinkButton>Activities</LinkButton>
+                      <Link href="/user/setting" passHref>
+                        <LinkButton>UserSetting</LinkButton>
                       </Link>
                     </StyledListItem>{' '}
                     <StyledListItem>
-                      <Link href="/api/logout" passHref>
+                      <Link href="/api/authz/logout" passHref>
                         <LinkButton>Logout</LinkButton>
                       </Link>
                     </StyledListItem>
@@ -91,7 +92,7 @@ const Header: FC<Props> = ({ userSession, loading }) => {
                 ) : (
                   <>
                     <StyledListItem>
-                      <Link href="/api/login" passHref>
+                      <Link href="/api/authz/login" passHref>
                         <LinkButton>Login</LinkButton>
                       </Link>
                     </StyledListItem>
