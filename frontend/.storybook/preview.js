@@ -6,6 +6,7 @@ import { ThemeProvider as MaterialUIThemeProvider, StylesProvider } from '@mater
 import CssBaseline from '@material-ui/core/CssBaseline';
 import store from '../src/redux/store';
 import theme from '../src/styles/theme';
+import { muiTheme } from 'storybook-addon-material-ui';
 
 export const decorators = [
   (Story) => (
@@ -20,6 +21,7 @@ export const decorators = [
       </StylesProvider>
     </Provider>
   ),
+  muiTheme(),
 ];
 
 export const parameters = {
