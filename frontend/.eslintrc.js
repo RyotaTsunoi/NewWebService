@@ -14,6 +14,8 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:prettier/recommended',
+    'plugin:testing-library/recommended',
+    'plugin:testing-library/react',
     // 'prettier/react'
   ],
   parser: '@typescript-eslint/parser',
@@ -24,7 +26,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'import'],
+  plugins: ['@typescript-eslint', 'react', 'import', 'testing-library'],
   settings: {
     'import/resolver': {
       node: {
@@ -60,5 +62,8 @@ module.exports = {
         tabWidth: 2,
       },
     ],
+    'testing-library/await-async-query': 'error',
+    'testing-library/no-await-sync-query': 'error',
+    'testing-library/no-debug': 'warn',
   },
 };

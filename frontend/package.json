@@ -8,7 +8,8 @@
     "type-check": "tsc",
     "lint": "eslint \"{src,lib,components}/**/*.ts\" --fix",
     "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -o build/storybook"
+    "build:storybook": "build-storybook -o build/storybook",
+    "test":"jest"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.13.6",
@@ -38,6 +39,9 @@
     "webpack": "^5.27.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@types/jest": "^26.0.21",
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
@@ -53,7 +57,10 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.2",
+    "jest": "^26.6.3",
     "prettier": "^2.2.1",
+    "ts-jest": "^26.5.4",
     "typescript": "4.0"
   },
   "license": "MIT"
