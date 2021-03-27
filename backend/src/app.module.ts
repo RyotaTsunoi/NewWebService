@@ -3,11 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CorsMiddleware } from './middleware/cors.middleware';
 import { AuthModule } from './auth/auth.module';
+import { GraphQLModule } from '@nestjs/graphql';
 
 @Module({
-  imports: [AuthModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    GraphQLModule.forRoot({
+      playground: true,
+      autoSchemaFile: 'schema.graphql',
+    }),
+  ],
 })
 export class AppModule {
   // configure(consumer: MiddlewareConsumer): MiddlewareConsumer | void {
