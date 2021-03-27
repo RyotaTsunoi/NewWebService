@@ -10,7 +10,7 @@ import { GraphQLModule } from '@nestjs/graphql';
     GraphQLModule.forRoot({
       playground: true,
       autoSchemaFile: 'schema.graphql',
-    }),
+    })
   ],
 })
 export class AppModule {

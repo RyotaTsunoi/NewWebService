@@ -7,3 +7,4 @@ type Props = {
 };
 
 export const Button: FC<Props> = ({ props, children }) => <MButton {...props}>{children}</MButton>;
+
