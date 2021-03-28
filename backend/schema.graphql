@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Photo {
+  id: ID!
+  title: String!
+}
+
+type Query {
+  photos: [Photo!]!
+}
+
+type Mutation {
+  create(PhotoInput: PhotoInput!): Photo!
+}
+
+input PhotoInput {
+  id: Float!
+  title: String!
+}

@@ -1,20 +1,18 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CorsMiddleware } from './middleware/cors.middleware';
-import { AuthModule } from './auth/auth.module';
 import { GraphQLModule } from '@nestjs/graphql';
+import { PhotosModule } from './photos/photos.module';
+import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
       playground: true,
       autoSchemaFile: 'schema.graphql',
-    })
+    }),
+    PhotosModule,
+    UsersModule,
+    PostsModule,
   ],
 })
-export class AppModule {
-  // configure(consumer: MiddlewareConsumer): MiddlewareConsumer | void {
-  //   consumer.apply(CorsMiddleware).forRoutes('*');
-  // }
-}
+export class AppModule {}
