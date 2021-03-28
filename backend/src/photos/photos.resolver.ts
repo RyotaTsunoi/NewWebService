@@ -21,8 +21,13 @@ const photoTable = [
 export class PhotosResolver {
   constructor(private photo: PhotosService) {}
   @Query((returns) => [Photo])
-  async photos(): Promise<Photo[]> {
-    return this.photo.photos({});
+  async photos(@Args('PhotoInput') args: PhotoInput): Promise<Photo[]> {
+    return this.photo.photos({ where: args });
+  }
+
+  @Query((returns) => [Photo])
+  async allPhotos(): Promise<Photo[]> {
+    return this.photo.allPhotos();
   }
 
   @Mutation((returns) => Photo)

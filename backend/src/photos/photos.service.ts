@@ -12,12 +12,16 @@ export class PhotosService {
     });
   }
 
+  async allPhotos(): Promise<Photo[] | null> {
+    return this.prisma.photo.findMany();
+  }
+
   async photos(params: {
     skip?: number;
     take?: number;
-    cursor?: Prisma.UserWhereUniqueInput;
-    where?: Prisma.UserWhereInput;
-    orderBy?: Prisma.UserOrderByInput;
+    cursor?: Prisma.PhotoWhereUniqueInput;
+    where?: Prisma.PhotoWhereInput;
+    orderBy?: Prisma.PhotoOrderByInput;
   }): Promise<Photo[]> {
     const { skip, take, cursor, where, orderBy } = params;
     return this.prisma.photo.findMany({

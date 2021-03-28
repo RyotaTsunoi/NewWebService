@@ -8,14 +8,15 @@ type Photo {
 }
 
 type Query {
-  photos: [Photo!]!
-}
-
-type Mutation {
-  create(PhotoInput: PhotoInput!): Photo!
+  photos(PhotoInput: PhotoInput!): [Photo!]!
+  allPhotos: [Photo!]!
 }
 
 input PhotoInput {
   id: Float!
   title: String!
+}
+
+type Mutation {
+  create(PhotoInput: PhotoInput!): Photo!
 }
