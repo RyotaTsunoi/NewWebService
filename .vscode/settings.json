@@ -1,3 +1,9 @@
 {
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.deploySubpath": "backend",
+  "appService.defaultWebAppToDeploy": "/subscriptions/08b5d2c5-eebd-4478-a2a6-c7924d3e16af/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sample-graphql-server-20210329"
 }
