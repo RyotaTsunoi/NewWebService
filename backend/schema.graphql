@@ -7,9 +7,18 @@ type Photo {
   title: String!
 }
 
+type User {
+  id: ID!
+  loginId: String!
+  password: String!
+  nickname: String!
+}
+
 type Query {
   photos(PhotoInput: PhotoInput!): [Photo!]!
   allPhotos: [Photo!]!
+  users(PhotoInput: UserInput!): [User!]!
+  allUsers: [User!]!
 }
 
 input PhotoInput {
@@ -17,6 +26,12 @@ input PhotoInput {
   title: String!
 }
 
+input UserInput {
+  loginId: String!
+  password: String!
+  nickname: String!
+}
+
 type Mutation {
-  create(PhotoInput: PhotoInput!): Photo!
+  create(UserInput: UserInput!): User!
 }
